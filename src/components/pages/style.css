@@ -1,0 +1,9 @@
+.text-color{
+    color:red;
+}
+
+.header-section{
+    height:auto;
+    width:100%;
+    background: linear-gradient(to left top,#131313,#332E3D);
+}

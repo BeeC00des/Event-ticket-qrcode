@@ -1,23 +1,22 @@
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Header from './components/header';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
 import Home from './components/pages/home.js';
 import Event from './components/pages/event.js';
 import About from './components/pages/about.js';
 
-import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-        <Header/>
-        <Router>
+        <BrowserRouter>
           <Routes>
-            <Route path="/" exact  components ={Home}></Route>
-            <Route path="/Event" exact  components={Event}></Route>
-            <Route path="/About" exact  components ={About}></Route>
+            <Route exact path="/" element={<Home/>} />
+            <Route exact path="about" element={<About />} />
+            <Route exact path="event" element={<Event />} />
           </Routes>
-      </Router>
+        </BrowserRouter>
+       
     </div>
   );
 }
