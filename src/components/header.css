@@ -1,6 +1,94 @@
-
 .header-section{
     height:100vh;
     width:100%;
     background: linear-gradient(to left top,#131313,#332E3D);
+}
+
+.nav-section{
+	height: 80px;
+	width: 100%;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 3rem;
+	font-size: 1.1rem;
+}
+
+.nav-logo {
+	text-decoration: none;
+	color: white;
+}
+
+.button{
+    background: linear-gradient(50deg,#CE9EE5,#79D0EA);
+    border-radius: 10px;
+    border: none;
+    color: white;
+    outline: none;
+    padding:7px;
+    transition: all 1s ease;
+    height: 42px;
+    width: 100px;
+    margin: 15px;
+    font-size:1em;
+}
+
+.nav-links {
+	display: grid;
+	grid-template-columns: repeat(4, auto);
+	grid-gap: 70px;
+	list-style: none;
+    /* border:1px solid red; */
+}
+
+.nav-link {
+	text-decoration: none;
+	color: white;
+	transition: 0.3s all;
+}
+
+/* .nav-link:hover {
+	color: red;
+} */
+
+.nav-icon {
+	display: none;	
+}
+
+@media only screen and (max-width: 600px) {
+	.nav-section{
+		position: relative;
+        padding: 0 2rem;
+	}
+
+
+	.nav-links {
+		display: block;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		top: 70px;
+		left: -100%;
+		transition: 0.5s all;
+	}
+
+	.nav-links.active {
+		left: 0;
+	}
+
+	.nav-item {
+        height:50px;
+		padding: 5px 0;
+	}
+
+	.nav-icon {
+		display: flex;
+        font-size: 1.5em;
+        cursor: pointer;
+	}
+
+    .button{
+        display:none;
+    }
 }

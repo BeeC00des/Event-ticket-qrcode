@@ -1,18 +1,49 @@
-import React from 'react'
+import React, { useState }from 'react'
+import { FiMenu, FiX } from 'react-icons/fi';
 import  './header.css'
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
-export default function home() {
+export default function Home() {
+
+    const [open, setOpen] = useState(false);
+  
+    const handleClick = () => {
+      setOpen(!open);
+    };
+  
+    const closeMenu = () => {
+      setOpen(false);
+    };
+
   return (
     <div className="header-section">
-       <div className="nav-section">
-            {/* <nav class="flex justify-center space-x-4">
-                <a href="/dashboard" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Home</a>
-                <a href="/team" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Team</a>
-                <a href="/projects" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Projects</a>
-                <a href="/reports" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Reports</a>
-            </nav> */}
-            {/* <p> welcome to world class product station</p> */}
-       </div>
+      <Router>
+        <div className="nav-section">
+          <Link to="/" className="nav-logo">
+            logo
+          </Link>
+          <div onClick={handleClick} className="nav-icon">
+            {open ? <FiX /> : <FiMenu />}
+          </div>
+          <ul className={open ? 'nav-links active' : 'nav-links'}>
+            <li className="nav-item">
+              <Link to="/Event" className="nav-link" onClick={closeMenu}> Event</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/About" className="nav-link" onClick={closeMenu}> About</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/Contact" className="nav-link" onClick={closeMenu}> Contact</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/Artist" className="nav-link" onClick={closeMenu}> Artist Park</Link>
+            </li>
+          </ul> 
+          <div className='button'>
+            Download
+          </div>
+        </div>
+       </Router>
     </div>
   )
 }
