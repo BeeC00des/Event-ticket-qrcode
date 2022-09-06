@@ -17,7 +17,6 @@ export default function Home() {
 
   return (
     <div>
-      {/* <BrowserRouter> */}
         <div className="nav-section">
           <Link to="/" className="nav-logo">
             logo
@@ -33,17 +32,16 @@ export default function Home() {
               <Link to="About" className="nav-link" onClick={closeMenu}> About</Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-link" onClick={closeMenu}> Contact</Link>
+              <Link to="/contact" className="nav-link" onClick={closeMenu}> Contact</Link>
             </li>
             <li className="nav-item">
               <Link to="/" className="nav-link" onClick={closeMenu}> Artist Park</Link>
             </li>
           </ul> 
-          <div className='button'>
+          <div className='button' onClick={dropModal}>
             Book Ticket
           </div>
         </div>
-       {/* </BrowserRouter> */}
     </div>
   )
 }
