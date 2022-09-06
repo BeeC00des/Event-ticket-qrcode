@@ -1,8 +1,4 @@
-.header-section{
-    height:100vh;
-    width:100%;
-    background: linear-gradient(to left top,#131313,#332E3D);
-}
+
 
 .nav-section{
 	height: 80px;
@@ -12,7 +8,7 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 3rem;
-	font-size: 1.1rem;
+	font-size: 1rem;
 }
 
 .nav-logo {
@@ -28,18 +24,18 @@
     outline: none;
     padding:7px;
     transition: all 1s ease;
-    height: 42px;
+    height: 40px;
     width: 100px;
     margin: 15px;
-    font-size:1em;
+    font-size:1rem;
+	text-align: center;
 }
 
 .nav-links {
 	display: grid;
 	grid-template-columns: repeat(4, auto);
-	grid-gap: 70px;
+	grid-gap: 75px;
 	list-style: none;
-    /* border:1px solid red; */
 }
 
 .nav-link {
@@ -47,11 +43,6 @@
 	color: white;
 	transition: 0.3s all;
 }
-
-/* .nav-link:hover {
-	color: red;
-} */
-
 .nav-icon {
 	display: none;	
 }
@@ -67,10 +58,13 @@
 		display: block;
 		position: absolute;
 		text-align: center;
+		height: 90vh;
 		width: 100%;
 		top: 70px;
 		left: -100%;
 		transition: 0.5s all;
+		background: linear-gradient(to left top,#131313,#332E3D);
+	
 	}
 
 	.nav-links.active {
@@ -80,6 +74,7 @@
 	.nav-item {
         height:50px;
 		padding: 5px 0;
+		
 	}
 
 	.nav-icon {

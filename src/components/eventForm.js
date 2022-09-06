@@ -43,7 +43,7 @@ export default function EventForm() {
       <fieldset>
          <label>
            <p>Name</p>
-           <input name="fullName" onChange={ handleChange } />
+           <input name="fullName" onChange={ handleChange } value={formData.name || ''}/>
          </label>
        </fieldset>
        <button type="submit">Submit</button>
