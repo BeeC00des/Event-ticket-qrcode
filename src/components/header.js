@@ -3,10 +3,10 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import  './header.css'
 import {Link } from 'react-router-dom';
 
-export default function Home() {
+export default function Home({modalState, ms}) {
 
     const [open, setOpen] = useState(false);
-  
+
     const handleClick = () => {
       setOpen(!open);
     };
@@ -14,6 +14,10 @@ export default function Home() {
     const closeMenu = () => {
       setOpen(false);
     };
+
+    const dropModal =() =>{
+      modalState(!ms)
+    }
 
   return (
     <div>
