@@ -3,7 +3,7 @@
 }
 
 .header-section{
-    height:100vh;
+    height:100%;
     width:100%;
     background: linear-gradient(to left top,#131313,#332E3D);
 }
@@ -12,12 +12,75 @@
     line-height: 5rem;
 }
 
+/* .header-text{
+    line-height: 3.5rem;
+    font-size: 40px;
+    font-weight: 500;
+} */
+.header-text{
+    line-height: 3rem;
+    font-size: 32px;
+    font-weight: 600;
+}
+
 .sub-text{
     line-height: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
+.subscribe-section{
+    background-color: #2B2B2B;
+}
+
+.card-height{
+    height:250px;
+}
+
+.mouse {
+	width: 30px;
+	height: 60px;
+	border: 3px solid #ffff;
+	border-radius: 60px;
+	position: relative;
+}
+.mouse::before {
+	content: '';
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #ffffff;
+	border-radius: 50%;
+	opacity: 1;
+	animation: wheel 2s infinite;
+	-webkit-animation: wheel 2s infinite;
+    cursor:pointer;
+}
+
+@keyframes wheel {
+	to {
+		opacity: 0;
+		top: 28px;
+	}
+}
+
+@-webkit-keyframes wheel {
+	to {
+		opacity: 0;
+		top: 28px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
     .main-text{
         line-height: 2rem;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .main-text{
+        line-height: 3rem;
     }
 }

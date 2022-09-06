@@ -27,7 +27,7 @@ export default function Home() {
           </div>
           <ul className={open ? 'nav-links active' : 'nav-links'}>
             <li className="nav-item">
-              <Link to="Event" className="nav-link" onClick={closeMenu}> Event</Link>
+              <Link to="Event" className="nav-link" onClick={closeMenu}> Live Event</Link>
             </li>
             <li className="nav-item">
               <Link to="About" className="nav-link" onClick={closeMenu}> About</Link>
@@ -40,7 +40,7 @@ export default function Home() {
             </li>
           </ul> 
           <div className='button'>
-            Download
+            Book Ticket
           </div>
         </div>
        {/* </BrowserRouter> */}
