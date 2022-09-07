@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
-import Header from '../header.js';
-import Footer from '../footer.js';
+import Header from '../navigation/header.js';
+import Footer from '../navigation/footer.js';
 import './style.css'
 import EventForm from '../modal/eventForm.js';
 
