@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
+import axios from "axios";
 import Header from '../navigation/header.js';
 import Footer from '../navigation/footer.js';
 import './style.css'
@@ -6,11 +7,51 @@ import EventForm from '../modal/eventForm.js';
 
 
 export default function Home() {
-  const img1 = require('../../img/img1.jpg');
-  const img2 = require('../../img/img2.jpg');
-  const img3 = require('../../img/img3.jpg');
+  let [responseData, setResponseData] = React.useState([])
 
-  const [ modalOpen, setOpenModal] = useState(false);
+    const options = {
+      method: 'GET',
+      url: 'https://youtube-music1.p.rapidapi.com/v2/search',
+      params: {query: 'eminem'},
+      headers: {
+        'X-RapidAPI-Key': '00ec9b22ebmsh606d8ad6fdb8db8p1651eejsnc5d86aad3b6e',
+        'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
+        }
+    };
+    
+    useEffect(()=>{
+      getAllVideos();
+    }, [])
+
+    const getAllVideos =() =>{
+      axios.request(options).then(function (response) {
+        const allSongs = response.data.result.songs
+        let newArr = []
+
+        for(let i = 0; i < 4; i++){
+          let index = Math.floor(Math.random() * allSongs.length-1);
+          newArr.push(allSongs[index])
+        }
+
+        console.log(newArr);
+        setResponseData(newArr)
+  
+      }).catch(function (error) {
+        console.error(error);
+      });
+      // console.log(responseData);
+    } 
+
+    const img1 = require('../../img/img1.jpg');
+    const img2 = require('../../img/img2.jpg');
+    const img3 = require('../../img/img3.jpg');
+    const img4 = require('../../img/apple.png');
+    const img5 = require('../../img/deezeer.png');
+    const img6 = require('../../img/Joox.png');
+    const img7 = require('../../img/tiktok.png');
+    const img8 = require('../../img/spotify.png');
+
+    const [ modalOpen, setOpenModal] = useState(false);
 
 
   return (
@@ -36,13 +77,12 @@ export default function Home() {
             <div className=" w-full h-auto my-5 text-center">
               <p className="text-base font-light py-5 text-white">Scroll down to see more</p>
               <div className="flex justify-center items-center">
-                <div class="mouse"></div>
+                <div className="mouse"></div>
               </div>
             </div>
             <div className="w-full">
-              <img src={img1} alt="musician" className="rounded-lg" />
-              <div class="music-card">
-
+              <div className="music-card">
+                <img src={img1} alt="musician" className="rounded-lg" />
               </div>
             </div>
           </div>
@@ -53,27 +93,27 @@ export default function Home() {
       </div>
 
       <div className="flex justify-center partner-section">
-        <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8">
-          <div className="border-2 lg:w-2/12 lg:mx-5 w-full">
-            1
+        <div className=" flex justify-center items-center flex-col lg:flex-row w-10/12 my-12">
+            <div className="lg:mx-8">
+              <img src={img4} alt="musician" className="object-fill h-12 w-32" />
+            </div>
+            <div className="lg:mx-8">
+              <img src={img5} alt="musician" className="object-fill h-12 w-32" />
+            </div>
+            <div className="lg:mx-8">
+              <img src={img6} alt="musician" className="object-fill h-12 w-32" />
+            </div>
+            <div className="lg:mx-8">
+              <img src={img7} alt="musician" className="object-fill h-12 w-32" />
+            </div>
+            <div className="lg:mx-8">
+              <img src={img8} alt="musician" className="object-fill h-32 w-32" />
+            </div>
           </div>
-          <div className="border-2 lg:w-2/12 lg:mx-5 w-full">
-            2
-          </div>
-          <div className="border-2 lg:w-2/12 lg:mx-5 w-full">
-            3
-          </div>
-          <div className="border-2 lg:w-2/12 lg:mx-5 w-full">
-            4
-          </div>
-          <div className="border-2 lg:w-2/12 lg:mx-5 w-full">
-            5
-          </div>
-        </div>
       </div>
 
       <div className="event-section">
-        <div className="flex justify-center ">
+        <div className="flex justify-center">
           <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8">
             <div className="lg:w-6/12 lg:mx-5 w-full">
               <h1 className="text-white text-left header-text">Concert music event that you can attend in your location</h1>
@@ -86,16 +126,15 @@ export default function Home() {
           </div>
         </div>
         <div className="flex justify-center">
-          <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8">
-            <div className="border-2 lg:w-6/12 lg:mx-5 w-full">
-              1
-            </div>
-            <div className="border-2 lg:w-6/12 lg:mx-5 w-full">
-              2
-            </div>
-            <div className="border-2 lg:w-6/12 lg:mx-5 w-full">
-              3
-            </div>
+          <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8 ">
+              {responseData.map(data => {
+              return (
+                <div key={data.id}> 
+                      <img  src ={data.thumbnail} alt="music-card" className=" object-fill w-56 lg:mx-5 h-48 rounded-lg"/>
+                      <h1 className="text-white text-center lg:w-56 w-full py-5">{data.title}</h1>
+                  </div>
+                  );
+              })}
           </div>
         </div>
       </div>
