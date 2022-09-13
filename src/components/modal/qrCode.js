@@ -1,7 +1,9 @@
 import React from 'react';
 import QRCode from 'qrcode.react';
+import Pdf from './pdfGenerator'
 
-export default function qrCode( props) {
+
+export default function QrCode( props) {
   const {valueString, documentId} =props;
 
 
@@ -17,6 +19,7 @@ export default function qrCode( props) {
         includeMargin={true}
         style={{ margin: "10px auto "}}
       />
+      <Pdf  style={{ margin: "10px auto "}}/>
     </div>
   )
 }
