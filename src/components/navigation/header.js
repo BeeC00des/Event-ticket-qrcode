@@ -22,9 +22,8 @@ export default function Home({modalState, ms}) {
   return (
     <div>
         <div className="nav-section">
-          <Link to="/" className="nav-logo">
-            logo
-          </Link>
+          <Link to="/" className="nav-logo">logo</Link>
+          
           <div onClick={handleClick} className="nav-icon">
             {open ? <FiX /> : <FiMenu />}
           </div>
@@ -44,7 +43,7 @@ export default function Home({modalState, ms}) {
           </ul> 
           <div className='button' onClick={dropModal}>
             Book Ticket
-          </div>
+          </div>      
         </div>
     </div>
   )

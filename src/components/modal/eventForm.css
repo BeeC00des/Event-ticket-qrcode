@@ -29,7 +29,6 @@
   
   .modalHeader {
     height: 50px;
-    /* background: linear-gradient(to left top,#131313,#332E3D); */
     overflow: hidden;
   }
   
@@ -50,7 +49,7 @@
     padding: 10px;
     border-radius: 8px;
     border: none;
-    font-size: 18px;
+    font-size: 23px;
     color: #2c3e50;
     background: white;
     position: fixed;
