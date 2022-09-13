@@ -8,18 +8,26 @@
     background: linear-gradient(to left top,#131313,#332E3D);
 }
 
+.gradient-text{
+	background: linear-gradient(50deg,#CE9EE5,#79D0EA);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.logo-img1{
+	height:50px;
+	width: 150px;
+}
+
+.logo-img{
+	height:35px;
+	width: 180px;
+}
+
 .main-text{
     line-height: 5rem;
 }
 
-/* .img-card{
-   height:200px;
-   width:200px;
-} */
-
-/* .logo-Img{
-	height:50px;
-} */
 .header-text{
     line-height: 3rem;
     font-size: 32px;

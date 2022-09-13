@@ -6,8 +6,11 @@ import './style.css'
 import EventForm from '../modal/eventForm.js';
 
 
+
+
 export default function Home() {
   let [responseData, setResponseData] = React.useState([])
+  let [artistData, setArtistData] = React.useState([])
 
     const options = {
       method: 'GET',
@@ -18,9 +21,19 @@ export default function Home() {
         'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
         }
     };
+    const base = {
+      method: 'GET',
+      url: 'https://youtube-music1.p.rapidapi.com/v2/get_artist',
+      params: {artist_id: 'UCedvOgsKFzcK3hA5taf3KoQ'},
+      headers: {
+        'X-RapidAPI-Key': '00ec9b22ebmsh606d8ad6fdb8db8p1651eejsnc5d86aad3b6e',
+        'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
+      }
+    };
     
     useEffect(()=>{
       getAllVideos();
+      getAllArtist();
     }, [])
 
     const getAllVideos =() =>{
@@ -39,7 +52,26 @@ export default function Home() {
       }).catch(function (error) {
         console.error(error);
       });
-      // console.log(responseData);
+      
+    } 
+
+    const getAllArtist =() =>{
+      axios.request(base).then(function (response) {
+        const allArtist = response.data.result.albums;
+        let newArtist = []
+
+        for(let i = 0; i < 4; i++){
+          let index = Math.floor(Math.random() * allArtist.length-1);
+          newArtist.push(allArtist[index])
+        }
+
+        console.log(newArtist);
+        setArtistData(newArtist)
+  
+      }).catch(function (error) {
+        console.error(error);
+      });
+      
     } 
 
     const img1 = require('../../img/img1.jpg');
@@ -47,7 +79,6 @@ export default function Home() {
     const img3 = require('../../img/img3.jpg');
     const img4 = require('../../img/apple.png');
     const img5 = require('../../img/deezeer.png');
-    const img6 = require('../../img/Joox.png');
     const img7 = require('../../img/tiktok.png');
     const img8 = require('../../img/spotify.png');
 
@@ -60,10 +91,10 @@ export default function Home() {
       {modalOpen&&<EventForm/>}
       <div className="flex justify-center lg:mt-16 mt-8 header-section">
         <div className="p-8 flex flex-col lg:w-8/12 justify-center items-center  md:w-10/12 sm:w-full">
-          <h1 className="lg:text-6xl md:text-4xl text-white text-center main-text">
-            Listening to good music make your life better
+          <h1 className="lg:text-6xl font-extrabold md:text-4xl text-white text-center main-text">
+            <span class="gradient-text">Listening</span> to good music make your <span class="gradient-text">life better </span>
           </h1>
-          <p className="text-base font-thin text-white lg:w-7/12 md:w-10/12 sm:w:full pt-6 sub-text text-center">
+          <p className="text-lg font-thin text-white lg:w-8/12 md:w-10/12 sm:w:full pt-6 sub-text text-center">
             With new genre of music you can make huge change in music life, enjoy the best thought pattern in your life time.
           </p>
         </div>
@@ -95,19 +126,16 @@ export default function Home() {
       <div className="flex justify-center partner-section">
         <div className=" flex justify-center items-center flex-col lg:flex-row w-10/12 my-12">
             <div className="lg:mx-8">
-              <img src={img4} alt="musician" className="object-fill h-12 w-32" />
+              <img src={img4} alt="Brand Logo" className='logo-img1' />
             </div>
             <div className="lg:mx-8">
-              <img src={img5} alt="musician" className="object-fill h-12 w-32" />
+              <img src={img5} alt="Brand Logo" className='logo-img' />
             </div>
             <div className="lg:mx-8">
-              <img src={img6} alt="musician" className="object-fill h-12 w-32" />
+              <img src={img7} alt="Brand Logo" className='logo-img' />
             </div>
             <div className="lg:mx-8">
-              <img src={img7} alt="musician" className="object-fill h-12 w-32" />
-            </div>
-            <div className="lg:mx-8">
-              <img src={img8} alt="musician" className="object-fill h-32 w-32" />
+              <img src={img8} alt="Brand Logo" className='logo-img' />
             </div>
           </div>
       </div>
@@ -128,11 +156,17 @@ export default function Home() {
         <div className="flex justify-center">
           <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8 ">
               {responseData.map(data => {
+
+                console.log(data)
               return (
                 <div key={data.id}> 
-                      <img  src ={data.thumbnail} alt="music-card" className=" object-fill w-56 lg:mx-5 h-48 rounded-lg"/>
-                      <h1 className="text-white text-center lg:w-56 w-full py-5">{data.title}</h1>
+                  <div className="relative">
+                    <img  src ={data.thumbnail} alt="music-card" className=" object-fill w-60 lg:mx-5 h-52 rounded-lg"/>
                   </div>
+                  <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900 h-12 border-2">
+                        <h1 className="text-white text-center lg:w-56 w-full py-5">{data.title}</h1>
+                    </div>
+                </div>
                   );
               })}
           </div>
@@ -150,15 +184,15 @@ export default function Home() {
 
         <div className="flex justify-center">
           <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8">
-            <div className="border-2 lg:w-6/12 lg:mx-5 w-full">
-              1
-            </div>
-            <div className="border-2 lg:w-6/12 lg:mx-5 w-full">
-              2
-            </div>
-            <div className="border-2 lg:w-6/12 lg:mx-5 w-full">
-              3
-            </div>
+            {artistData.map(data => {
+              return (
+                <div key={data.album_id}> 
+                      {/* <img  src ={data.thumbnail} alt="music-card" className=" object-fill w-56 lg:mx-5 h-80 rounded-lg"/> */}
+                      {/* <h1 className="text-white text-center lg:w-56 w-full py-5">{data.title}</h1> */}
+                      {/* <p className="text-white text-center text-sm lg:w-56 w-full">{data.year}</p> */}
+                  </div>
+                  );
+              })}
           </div>
         </div>
       </div>
