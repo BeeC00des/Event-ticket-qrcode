@@ -25,8 +25,8 @@
     padding:7px;
     transition: all 1s ease;
     height: 40px;
-    width: 120px;
-    margin: 15px;
+    width: auto;
+    margin:15px;
     font-size:1rem;
 	text-align: center;
 	cursor: pointer;

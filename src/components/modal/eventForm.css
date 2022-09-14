@@ -1,4 +1,19 @@
-
+.buttonDownload{
+  background: linear-gradient(50deg,#CE9EE5,#79D0EA);
+  margin:auto !important;
+  width:auto;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  outline: none;
+  padding:7px;
+  transition: all 1s ease;
+  height: 40px;
+  margin:15px;
+  font-size:1rem;
+  text-align: center;
+  cursor: pointer;
+}
 .darkBG {
     background-color: rgba(0, 0, 0, 0.2);
     width: 100vw;

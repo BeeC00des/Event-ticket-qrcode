@@ -20,11 +20,6 @@ export default function EventForm() {
 
     const [openModal, setOpenModal] = useState(true);
 
-
-    // const qrGen =() =>{
-    //   
-    // }
-
     const closeModal =() =>{
       setOpenModal(!openModal);
     }
@@ -35,17 +30,18 @@ export default function EventForm() {
       setFormBox(false);
       setOpenQr(!openQr);
 
-      setTimeout(() => {
-        setSubmitting(false);
-        setFormBox(true);
-        setOpenQr(openQr);
-      }, 10000)
+      // setTimeout(() => {
+      //   setSubmitting(false);
+      //   setFormBox(true);
+      //   setOpenQr(openQr);
+      // }, 10000)
     }
     const handleChange = event => {
       setFormData({
         name: event.target.name,
         value: event.target.value,
       });
+    
   }
   return (
     <div className="darkBdg rounded-lg">{openModal &&
@@ -60,7 +56,7 @@ export default function EventForm() {
 
             <div>
               {openQr &&
-              <QrCode />
+              <QrCode valueString="***Code***Daily***yo**all**"  documentId ="1212" />
               }
             </div>
 
