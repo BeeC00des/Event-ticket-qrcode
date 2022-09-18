@@ -1,4 +1,4 @@
-.buttonDownload{
+/* .buttonDownload{
   background: linear-gradient(50deg,#CE9EE5,#79D0EA);
   margin:auto !important;
   width:auto;
@@ -13,7 +13,7 @@
   font-size:1rem;
   text-align: center;
   cursor: pointer;
-}
+} */
 .darkBG {
     background-color: rgba(0, 0, 0, 0.2);
     width: 100vw;

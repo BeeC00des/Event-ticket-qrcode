@@ -4,7 +4,8 @@ import jsPDF from 'jspdf';
 
 
 export default function QrCode( props) {
-  const {valueString, documentId} =props;
+
+  const {formData, documentId} =props;
   const qrRef = useRef();
 
   const generatePdf = () => {
@@ -15,10 +16,11 @@ export default function QrCode( props) {
     });
     
     doc.setFontSize(15);
-    doc.text('Bolarinwa1', 43, 20);
+    doc.text( formData.firstName, 43, 20);
 
     doc.setFontSize(10);
-    doc.text('Go Global', 43, 28);
+    doc.text(formData.gmail, 43, 28);
+
     let canvas = qrRef.current.querySelector("canvas");
     doc.addImage(canvas, 'png', 0, 0, 40, 40);
     
@@ -27,7 +29,7 @@ export default function QrCode( props) {
 
   const qrcode = (
     <QRCodeCanvas
-        value={valueString}
+        value={`firstname: ${formData.firstName} Lastname: ${formData.lastName} gmail: ${formData.gmail}`}
         id = {documentId}
         size ={128}
         bgColor={'white'}
