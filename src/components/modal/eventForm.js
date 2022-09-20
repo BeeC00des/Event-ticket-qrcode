@@ -28,14 +28,14 @@ export default function EventForm() {
       event.preventDefault();
       setFormBox(false);
       setOpenQr(!openQr);
-      console.log(formData); 
+      
     }
     const handleChange = event => {
       setFormData({
         name: event.target.name,
         value: event.target.value,
       });
-      console.log(formData); 
+      
   }
 
   return (

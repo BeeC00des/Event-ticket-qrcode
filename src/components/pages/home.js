@@ -9,18 +9,18 @@ import EventForm from '../modal/eventForm.js';
 
 
 export default function Home() {
-  let [responseData, setResponseData] = React.useState([])
+  // let [responseData, setResponseData] = React.useState([])
   let [artistData, setArtistData] = React.useState([])
 
-    const options = {
-      method: 'GET',
-      url: 'https://youtube-music1.p.rapidapi.com/v2/search',
-      params: {query: 'eminem'},
-      headers: {
-        'X-RapidAPI-Key': '00ec9b22ebmsh606d8ad6fdb8db8p1651eejsnc5d86aad3b6e',
-        'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
-        }
-    };
+    // const options = {
+    //   method: 'GET',
+    //   url: 'https://youtube-music1.p.rapidapi.com/v2/search',
+    //   params: {query: 'eminem'},
+    //   headers: {
+    //     'X-RapidAPI-Key': '00ec9b22ebmsh606d8ad6fdb8db8p1651eejsnc5d86aad3b6e',
+    //     'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
+    //     }
+    // };
     const base = {
       method: 'GET',
       url: 'https://youtube-music1.p.rapidapi.com/v2/get_artist',
@@ -32,28 +32,28 @@ export default function Home() {
     };
     
     useEffect(()=>{
-      getAllVideos();
+      // getAllVideos();
       getAllArtist();
     }, [])
 
-    const getAllVideos =() =>{
-      axios.request(options).then(function (response) {
-        const allSongs = response.data.result.songs
-        let newArr = []
+    // const getAllVideos =() =>{
+    //   axios.request(options).then(function (response) {
+    //     const allSongs = response.data.result.songs
+    //     let newArr = []
 
-        for(let i = 0; i < 4; i++){
-          let index = Math.floor(Math.random() * allSongs.length-1);
-          newArr.push(allSongs[index])
-        }
+    //     for(let i = 0; i < 4; i++){
+    //       let index = Math.floor(Math.random() * allSongs.length-1);
+    //       newArr.push(allSongs[index])
+    //     }
 
-        console.log(newArr);
-        setResponseData(newArr)
+    //     console.log(newArr);
+    //     setResponseData(newArr)
   
-      }).catch(function (error) {
-        console.error(error);
-      });
+    //   }).catch(function (error) {
+    //     console.error(error);
+    //   });
       
-    } 
+    // } 
 
     const getAllArtist =() =>{
       axios.request(base).then(function (response) {
@@ -74,13 +74,21 @@ export default function Home() {
       
     } 
 
+    // section one image asset
+
     const img1 = require('../../img/img1.jpg');
     const img2 = require('../../img/img2.jpg');
     const img3 = require('../../img/img3.jpg');
+
+    //logo Asset
     const img4 = require('../../img/apple.png');
     const img5 = require('../../img/deezeer.png');
     const img7 = require('../../img/tiktok.png');
     const img8 = require('../../img/spotify.png');
+
+    // card image asset
+
+
 
     const [ modalOpen, setOpenModal] = useState(false);
 
@@ -155,20 +163,15 @@ export default function Home() {
         </div>
         <div className="flex justify-center">
           <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8 ">
-              {responseData.map(data => {
-
-                console.log(data)
-              return (
-                <div key={data.id}> 
+                <div> 
                   <div className="relative">
-                    <img  src ={data.thumbnail} alt="music-card" className=" object-fill w-60 lg:mx-5 h-52 rounded-lg"/>
+                    <img  src = "" alt="music-card" className=" object-fill w-60 lg:mx-5 h-52 rounded-lg"/>
                   </div>
                   <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900 h-12 border-2">
-                        <h1 className="text-white text-center lg:w-56 w-full py-5">{data.title}</h1>
+                        <h1 className="text-white text-center lg:w-56 w-full py-5"></h1>
                     </div>
                 </div>
-                  );
-              })}
+
           </div>
         </div>
       </div>
@@ -187,9 +190,9 @@ export default function Home() {
             {artistData.map(data => {
               return (
                 <div key={data.album_id}> 
-                      {/* <img  src ={data.thumbnail} alt="music-card" className=" object-fill w-56 lg:mx-5 h-80 rounded-lg"/> */}
-                      {/* <h1 className="text-white text-center lg:w-56 w-full py-5">{data.title}</h1> */}
-                      {/* <p className="text-white text-center text-sm lg:w-56 w-full">{data.year}</p> */}
+                       <img  src ={data.thumbnail} alt="music-card" className=" object-fill w-56 lg:mx-5 h-80 rounded-lg"/>
+                      <h1 className="text-white text-center lg:w-56 w-full py-5">{data.title}</h1>
+                      <p className="text-white text-center text-sm lg:w-56 w-full">{data.year}</p>
                   </div>
                   );
               })}
