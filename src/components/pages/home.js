@@ -21,19 +21,19 @@ export default function Home() {
     //     'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
     //     }
     // };
-    const base = {
-      method: 'GET',
-      url: 'https://youtube-music1.p.rapidapi.com/v2/get_artist',
-      params: {artist_id: 'UCedvOgsKFzcK3hA5taf3KoQ'},
-      headers: {
-        'X-RapidAPI-Key': '00ec9b22ebmsh606d8ad6fdb8db8p1651eejsnc5d86aad3b6e',
-        'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
-      }
-    };
+    // const base = {
+    //   method: 'GET',
+    //   url: 'https://youtube-music1.p.rapidapi.com/v2/get_artist',
+    //   params: {artist_id: 'UCedvOgsKFzcK3hA5taf3KoQ'},
+    //   headers: {
+    //     'X-RapidAPI-Key': '00ec9b22ebmsh606d8ad6fdb8db8p1651eejsnc5d86aad3b6e',
+    //     'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
+    //   }
+    // };
     
     useEffect(()=>{
       // getAllVideos();
-      getAllArtist();
+      // getAllArtist();
     }, [])
 
     // const getAllVideos =() =>{
@@ -55,24 +55,24 @@ export default function Home() {
       
     // } 
 
-    const getAllArtist =() =>{
-      axios.request(base).then(function (response) {
-        const allArtist = response.data.result.albums;
-        let newArtist = []
+    // const getAllArtist =() =>{
+    //   axios.request(base).then(function (response) {
+    //     const allArtist = response.data.result.albums;
+    //     let newArtist = []
 
-        for(let i = 0; i < 4; i++){
-          let index = Math.floor(Math.random() * allArtist.length-1);
-          newArtist.push(allArtist[index])
-        }
+    //     for(let i = 0; i < 4; i++){
+    //       let index = Math.floor(Math.random() * allArtist.length-1);
+    //       newArtist.push(allArtist[index])
+    //     }
 
-        console.log(newArtist);
-        setArtistData(newArtist)
+    //     console.log(newArtist);
+    //     setArtistData(newArtist)
   
-      }).catch(function (error) {
-        console.error(error);
-      });
+    //   }).catch(function (error) {
+    //     console.error(error);
+    //   });
       
-    } 
+    // } 
 
     // section one image asset
 
@@ -187,7 +187,7 @@ export default function Home() {
 
         <div className="flex justify-center">
           <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8">
-            {artistData.map(data => {
+            {/* {artistData.map(data => {
               return (
                 <div key={data.album_id}> 
                        <img  src ={data.thumbnail} alt="music-card" className=" object-fill w-56 lg:mx-5 h-80 rounded-lg"/>
@@ -195,7 +195,7 @@ export default function Home() {
                       <p className="text-white text-center text-sm lg:w-56 w-full">{data.year}</p>
                   </div>
                   );
-              })}
+              })} */}
           </div>
         </div>
       </div>
