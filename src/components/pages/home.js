@@ -164,12 +164,12 @@ export default function Home() {
         <div className="flex justify-center">
           <div className=" flex justify-center items-center lg:flex-row flex-col w-10/12 my-8 ">
                 <div> 
-                  <div className="relative">
+                  {/* <div className="relative">
                     <img  src = "" alt="music-card" className=" object-fill w-60 lg:mx-5 h-52 rounded-lg"/>
                   </div>
                   <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900 h-12 border-2">
                         <h1 className="text-white text-center lg:w-56 w-full py-5"></h1>
-                    </div>
+                    </div> */}
                 </div>
 
           </div>
