@@ -132,17 +132,17 @@ export default function Home() {
       </div>
 
       <div className="flex justify-center partner-section">
-        <div className=" flex justify-center items-center flex-col lg:flex-row w-10/12 my-12">
-            <div className="lg:mx-8">
+        <div className="flex justify-between items-center  flex-col lg:flex-row w-9/12 my-12">
+            <div className="w-3/10">
               <img src={img4} alt="Brand Logo" className='logo-img1' />
             </div>
-            <div className="lg:mx-8">
+            <div className="w-3/10">
               <img src={img5} alt="Brand Logo" className='logo-img' />
             </div>
-            <div className="lg:mx-8">
+            <div className="w-3/10">
               <img src={img7} alt="Brand Logo" className='logo-img' />
             </div>
-            <div className="lg:mx-8">
+            <div className="w-3/10">
               <img src={img8} alt="Brand Logo" className='logo-img' />
             </div>
           </div>
