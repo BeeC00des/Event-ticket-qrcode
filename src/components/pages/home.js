@@ -228,7 +228,7 @@ export default function Home() {
             Our platform offers you with best in season music, live concert with great artist.
           </p>
 
-          <div className="formBox flex justify-center items-center my-3">
+          <div className="formBox lg:flex justify-center items-center my-3">
             <input name="fullName" placeholder='Email Address' className="email-form" />
             <button type="submit">Submit</button>
           </div>
